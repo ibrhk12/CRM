@@ -1,0 +1,9 @@
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.DataAccess\obj\Debug\netcoreapp2.1\CRM.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.DataAccess\obj\Debug\netcoreapp2.1\CRM.DataAccess.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.DataAccess\obj\Debug\netcoreapp2.1\CRM.DataAccess.AssemblyInfo.cs
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.DataAccess\obj\Debug\netcoreapp2.1\CRM.DataAccess.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.DataAccess\bin\Debug\netcoreapp2.1\CRM.DataAccess.deps.json
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.DataAccess\bin\Debug\netcoreapp2.1\CRM.DataAccess.dll
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.DataAccess\bin\Debug\netcoreapp2.1\CRM.DataAccess.pdb
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.DataAccess\obj\Debug\netcoreapp2.1\CRM.DataAccess.dll
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.DataAccess\obj\Debug\netcoreapp2.1\CRM.DataAccess.pdb

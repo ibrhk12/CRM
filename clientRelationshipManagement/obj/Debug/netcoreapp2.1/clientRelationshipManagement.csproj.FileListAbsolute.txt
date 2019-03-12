@@ -1,0 +1,14 @@
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\bin\Debug\netcoreapp2.1\clientRelationshipManagement.deps.json
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\bin\Debug\netcoreapp2.1\clientRelationshipManagement.runtimeconfig.json
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\bin\Debug\netcoreapp2.1\clientRelationshipManagement.runtimeconfig.dev.json
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\bin\Debug\netcoreapp2.1\clientRelationshipManagement.dll
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\bin\Debug\netcoreapp2.1\clientRelationshipManagement.pdb
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.RazorAssemblyInfo.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.RazorAssemblyInfo.cs
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.AssemblyInfo.cs
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.RazorTargetAssemblyInfo.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.dll
+C:\Users\HP\source\repos\clientRelationshipManagement\clientRelationshipManagement\obj\Debug\netcoreapp2.1\clientRelationshipManagement.pdb

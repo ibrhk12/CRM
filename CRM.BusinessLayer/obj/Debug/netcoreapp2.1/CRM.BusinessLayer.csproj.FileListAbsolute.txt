@@ -1,0 +1,14 @@
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\obj\Debug\netcoreapp2.1\CRM.BusinessLayer.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\obj\Debug\netcoreapp2.1\CRM.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\obj\Debug\netcoreapp2.1\CRM.BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\obj\Debug\netcoreapp2.1\CRM.BusinessLayer.AssemblyInfo.cs
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\bin\Debug\netcoreapp2.1\CRM.BusinessLayer.deps.json
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\bin\Debug\netcoreapp2.1\CRM.BusinessLayer.dll
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\bin\Debug\netcoreapp2.1\CRM.BusinessLayer.pdb
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\bin\Debug\netcoreapp2.1\CRM.DataAccess.dll
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Options.dll
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\bin\Debug\netcoreapp2.1\CRM.DataAccess.pdb
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Options.xml
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\obj\Debug\netcoreapp2.1\CRM.BusinessLayer.csproj.CopyComplete
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\obj\Debug\netcoreapp2.1\CRM.BusinessLayer.dll
+C:\Users\HP\source\repos\ClientRelationshipManagement\CRM.BusinessLayer\obj\Debug\netcoreapp2.1\CRM.BusinessLayer.pdb

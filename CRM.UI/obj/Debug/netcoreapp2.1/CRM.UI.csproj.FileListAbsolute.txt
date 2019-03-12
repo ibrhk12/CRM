@@ -1,0 +1,6 @@
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.UI\obj\Debug\netcoreapp2.1\CRM.UI.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.UI\obj\Debug\netcoreapp2.1\CRM.UI.csproj.CoreCompileInputs.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.UI\obj\Debug\netcoreapp2.1\CRM.UI.RazorAssemblyInfo.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.UI\obj\Debug\netcoreapp2.1\CRM.UI.RazorAssemblyInfo.cs
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.UI\obj\Debug\netcoreapp2.1\CRM.UI.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\clientRelationshipManagement\CRM.UI\obj\Debug\netcoreapp2.1\CRM.UI.AssemblyInfo.cs

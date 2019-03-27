@@ -45,14 +45,16 @@ namespace CRM.BusinessLayer
                 throw ex;
             }
         }
-        public async Task AddUser(Users item)
+        public async Task<bool> AddUser(Users item)
         {
             try
             {
                 await _context.Users.InsertOneAsync(item);
+                return true;
             }
             catch(Exception ex)
             {
+                return false;
                 throw ex;
             }
         }

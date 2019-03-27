@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using CRM.BusinessLayer.InputModel;
+using CRM.DataAccess;
 using CRM.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +27,29 @@ namespace CRM.UI.Controllers
             _userManager = userManager;
             _configuration = configuration;
         }
+        [Route("register")]
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] RegisterIM value)
+        {
+            Users user = new Users {
+                firstName = value.firstName,
+                lastName = value.lastName,
+                userName = value.userName,
+                email = value.email,
+                password = value.password
+            };
+            var result = await _userManager.AddUser(user);
+            if (result)
+            {
+               var token = tokenGen(user);
+                return Ok(new {
+                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    expiration = token.ValidTo,
+                    user
+                });
+            }
+            return Unauthorized();
+        }
         // POST: api/Auth
         [Route("login")]
         [HttpPost]
@@ -34,20 +58,7 @@ namespace CRM.UI.Controllers
             var user = await _userManager.GetUser(value.userName);
             if (user != null && user.password == value.password)
             {
-                var claim = new[] {
-                    new Claim(JwtRegisteredClaimNames.Sub, user.userName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                };
-                var signinKey = new SymmetricSecurityKey(
-                  Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"]));
-
-                var token = new JwtSecurityToken(
-                    issuer: _configuration["Jwt:Site"],
-                    audience: _configuration["Jwt:Site"],
-                    expires: DateTime.UtcNow.AddHours(1),
-                    claims: claim,
-                    signingCredentials: new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
-                    );
+               var token = tokenGen(user);
                 return Ok(
                     new
                     {
@@ -58,7 +69,24 @@ namespace CRM.UI.Controllers
             }
             return Unauthorized();
         }
+        //token Generator Method
+        public JwtSecurityToken tokenGen(Users user)
+        {
+            var claim = new[] {
+                    new Claim(JwtRegisteredClaimNames.Sub, user.userName),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                };
+            var signinKey = new SymmetricSecurityKey(
+              Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"]));
+            var token = new JwtSecurityToken(
+                    issuer: _configuration["Jwt:Site"],
+                    audience: _configuration["Jwt:Site"],
+                    expires: DateTime.UtcNow.AddHours(1),
+                    claims: claim,
+                    signingCredentials: new SigningCredentials(signinKey, SecurityAlgorithms.HmacSha256)
+                    );
+            return token;
+        }
 
-        
     }
 }

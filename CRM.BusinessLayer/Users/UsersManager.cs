@@ -33,12 +33,12 @@ namespace CRM.BusinessLayer
         {
             throw new NotImplementedException();
         }
-        public async Task<Users> GetUser(string email, string userName)
+        public async Task<Users> GetUser(string userName)
         {
             try
             {
 
-                return await _context.Users.Find(User => User.email == email && User.userName == userName).FirstOrDefaultAsync();
+                return await _context.Users.Find(User => User.email == userName || User.userName == userName).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {

@@ -17,5 +17,14 @@ namespace CRM.DataAccess
         public string userName { get; set; }
         [BsonElement]
         public string email { get; set; }
+        [BsonElement]
+        [BsonRequired]
+        public string password { get; set; }
+        [BsonElement]
+        [BsonRequired]
+        public string hierarchy { get; set; }
+        [BsonElement]
+        [BsonRequired]
+        public string departement { get; set; }
     }
 }

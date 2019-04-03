@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace CRM.DataAccess
@@ -9,24 +8,20 @@ namespace CRM.DataAccess
     public class Users
     {
         [BsonId]
-        public ObjectId internalId { get; set; }
+        public object internalId { get; set; }
         [BsonElement]
         public string firstName { get; set; }
         [BsonElement]
         public string lastName { get; set; }
         [BsonElement]
-        [BsonRequired]
         public string userName { get; set; }
         [BsonElement]
         public string email { get; set; }
         [BsonElement]
-        [BsonRequired]
         public string password { get; set; }
         [BsonElement]
-        [BsonRequired]
         public string hierarchy { get; set; }
         [BsonElement]
-        [BsonRequired]
-        public string departement { get; set; }
+        public string department { get; set; }
     }
 }

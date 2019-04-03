@@ -10,8 +10,8 @@ namespace CRM.DataAccess.Interfaces
     {
         Task<IEnumerable<Users>> GetAllUsers();
         Task<Users> GetUser(Object id);
-        Task<Users> GetUser(string email, string userName);
-        Task AddUser(Users item);
+        Task<Users> GetUser(string userName);
+        Task<bool> AddUser(Users item);
         Task<bool> RemoveUser(string userName);
         Task<bool> UpdateUser(string userName, Users item);
         Task<bool> RemoveAllUsers();

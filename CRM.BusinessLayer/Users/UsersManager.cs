@@ -33,26 +33,28 @@ namespace CRM.BusinessLayer
         {
             throw new NotImplementedException();
         }
-        public async Task<Users> GetUser(string email, string userName)
+        public async Task<Users> GetUser(string userName)
         {
             try
             {
 
-                return await _context.Users.Find(User => User.email == email && User.userName == userName).FirstOrDefaultAsync();
+                return await _context.Users.Find(User => User.email == userName || User.userName == userName).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public async Task AddUser(Users item)
+        public async Task<bool> AddUser(Users item)
         {
             try
             {
                 await _context.Users.InsertOneAsync(item);
+                return true;
             }
             catch(Exception ex)
             {
+                return false;
                 throw ex;
             }
         }

@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using CRM.DataAccess.Interfaces;
 using CRM.BusinessLayer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace clientRelationshipManagement
 {
@@ -29,6 +32,25 @@ namespace clientRelationshipManagement
                 options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
+
+            //Jwt Authentication & token Validation
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["Jwt:site"],
+                    ValidIssuer = Configuration["Jwt:site"], 
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SigningKey"]))
+                };
+            });
             services.AddTransient<IUsersManager, UsersManager>();
         }
 
@@ -43,8 +65,11 @@ namespace clientRelationshipManagement
             {
                 app.UseHsts();
             }
+            app.UseCors();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseAuthentication();
             app.UseMvc(routes => {
                 routes.MapRoute(name: "default", template:"{controller}/{action=index}/{id}");
             });
@@ -55,8 +80,7 @@ namespace clientRelationshipManagement
                     spa.UseAngularCliServer(npmScript:"start");
                 }
             });
-            app.UseHttpsRedirection();
-            app.UseMvc();
+                        
         }
     }
 }

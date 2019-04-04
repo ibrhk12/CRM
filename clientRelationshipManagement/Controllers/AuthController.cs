@@ -36,7 +36,9 @@ namespace CRM.UI.Controllers
                 lastName = value.lastName,
                 userName = value.userName,
                 email = value.email,
-                password = value.password
+                password = value.password,
+                department = value.department,
+                hierarchy = value.hierarchy
             };
             var result = await _userManager.AddUser(user);
             if (result)

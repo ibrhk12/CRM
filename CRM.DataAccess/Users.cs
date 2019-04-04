@@ -23,10 +23,10 @@ namespace CRM.DataAccess
         [BsonRequired]
         public string password { get; set; }
         [BsonElement]
-        [BsonRequired]
+        //[BsonRequired]
         public string hierarchy { get; set; }
         [BsonElement]
-        [BsonRequired]
-        public string departement { get; set; }
+        //[BsonRequired]
+        public string department { get; set; }
     }
 }

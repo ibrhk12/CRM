@@ -17,5 +17,9 @@ namespace CRM.BusinessLayer.InputModel
         public string email { get; set; }
         [Required]
         public string password { get; set; }
+        [Required]
+        public string department { get; set; }
+        [Required]
+        public string hierarchy { get; set; }
     }
 }

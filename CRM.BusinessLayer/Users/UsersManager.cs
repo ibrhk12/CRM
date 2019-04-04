@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using CRM.BusinessLayer.OutputModel;
 using CRM.DataAccess;
 using CRM.DataAccess.Interfaces;
 using Microsoft.Extensions.Options;
@@ -29,34 +30,68 @@ namespace CRM.BusinessLayer
                 throw ex;
             }
         }
-        public Task<Users> GetUser(object id)
-        {
-            throw new NotImplementedException();
-        }
         public async Task<Users> GetUser(string userName)
         {
             try
             {
+                return await _context.Users.Find(user => user.userName == userName).FirstOrDefaultAsync();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+        
+        public async Task<Users> GetUser(string email, string userName)
+        {
+            try
+            {
 
-                return await _context.Users.Find(User => User.email == userName || User.userName == userName).FirstOrDefaultAsync();
+                return await _context.Users.Find(User => User.email == email && User.userName == userName).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public async Task<bool> AddUser(Users item)
+        public async Task<CredentialExistOM> AddUser(Users item)
         {
             try
             {
-                await _context.Users.InsertOneAsync(item);
-                return true;
+                CredentialExistOM check = new CredentialExistOM();
+                check = checkUserAvail(item, check).Result;
+                check = checkEmailAvail(item, check).Result;
+                if(!check.emailExist && !check.userNameExist)
+                    await _context.Users.InsertOneAsync(item);
+                return check;
             }
             catch(Exception ex)
             {
-                return false;
                 throw ex;
             }
+        }
+        //Checks if the userName already exists.
+        private async Task<CredentialExistOM> checkUserAvail(Users item, CredentialExistOM check)
+        {
+            var result = await _context.Users.Find(u => u.userName == item.userName).ToListAsync();
+            if (result.Count > 0)
+            {
+                check.userNameExist = true;
+                check.message += "* UserName Already exist";
+            }
+            return check;
+        }
+        // Checks the email already exists.
+        private async Task<CredentialExistOM> checkEmailAvail(Users item, CredentialExistOM check)
+        {
+            var result = await _context.Users.Find(u => u.email == item.email).ToListAsync();
+            if(result.Count > 0)
+            {
+                check.emailExist = true;
+                check.message += "* Email Already exist";
+            }
+            return check;
         }
         public async Task<bool> RemoveUser(string userName)
         {

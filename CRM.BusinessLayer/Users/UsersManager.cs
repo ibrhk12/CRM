@@ -34,7 +34,7 @@ namespace CRM.BusinessLayer
         {
             try
             {
-                return await _context.Users.Find(user => user.userName == userName).FirstOrDefaultAsync();
+                return await _context.Users.Find(user => user.userName == userName || user.email == userName).FirstOrDefaultAsync();
             }
             catch(Exception ex)
             {
@@ -43,18 +43,18 @@ namespace CRM.BusinessLayer
             
         }
         
-        public async Task<Users> GetUser(string email, string userName)
-        {
-            try
-            {
+        //public async Task<Users> GetUser(string email, string userName)
+        //{
+        //    try
+        //    {
 
-                return await _context.Users.Find(User => User.email == email && User.userName == userName).FirstOrDefaultAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //        return await _context.Users.Find(User => User.email == email && User.userName == userName).FirstOrDefaultAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         public async Task<CredentialExistOM> AddUser(Users item)
         {
             try

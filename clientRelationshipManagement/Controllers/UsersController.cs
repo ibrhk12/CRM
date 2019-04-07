@@ -29,7 +29,7 @@ namespace clientRelationshipManagement.Controllers
             var result = await _userManager.GetAllUsers();
             if (result != null)
             {
-                return Ok( result);
+                return Ok(result);
             }
             return BadRequest();
         }

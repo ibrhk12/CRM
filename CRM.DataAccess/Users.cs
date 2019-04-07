@@ -15,12 +15,12 @@ namespace CRM.DataAccess
         [BsonElement]
         public string lastName { get; set; }
         [BsonElement]
-        [BsonRequired]
+        //[BsonRequired]
         public string userName { get; set; }
         [BsonElement]
         public string email { get; set; }
         [BsonElement]
-        [BsonRequired]
+        //[BsonRequired]
         public string password { get; set; }
         [BsonElement]
         //[BsonRequired]

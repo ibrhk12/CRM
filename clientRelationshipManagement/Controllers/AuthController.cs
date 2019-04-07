@@ -41,7 +41,7 @@ namespace CRM.UI.Controllers
                 hierarchy = value.hierarchy
             };
             var result = await _userManager.AddUser(user);
-            if (result)
+            if (!result.emailExist && !result.userNameExist)
             {
                var token = tokenGen(user);
                 return Ok(new {
@@ -50,7 +50,7 @@ namespace CRM.UI.Controllers
                     user
                 });
             }
-            return Unauthorized();
+            return BadRequest(result.message);
         }
         // POST: api/Auth
         [Route("login")]

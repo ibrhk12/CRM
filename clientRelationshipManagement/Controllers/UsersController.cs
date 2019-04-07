@@ -46,11 +46,35 @@ namespace clientRelationshipManagement.Controllers
 
         // POST api/users
         //Creates a new User
-        //[HttpPost]
-        //public async Task<IActionResult> Post([FromBody] UserCredentialsIM IM)
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] UserCredentialsIM IM)
+        {
+            Users newUser = new Users
+            {
+                firstName = IM.firstName,
+                lastName = IM.lastName,
+                email = IM.email,
+                userName = IM.userName,
+                password = IM.password,
+                hierarchy = IM.hierarchy,
+                department = IM.department
+            };
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var result = await _userManager.AddUser(newUser);
+            if (!result.emailExist && !result.userNameExist)
+            {
+                return Ok(newUser);
+            }
+            return BadRequest(result);
+        }
+
+        // PUT api/Users
+        //updates User's data
+        //[HttpPut]
+        //public async Task<IActionResult> Put([FromBody] UserCredentialsIM IM)
         //{
-        //    Users newUser = new Users
-        //    {
+        //    Users item = new Users {
         //        firstName = IM.firstName,
         //        lastName = IM.lastName,
         //        email = IM.email,
@@ -59,43 +83,24 @@ namespace clientRelationshipManagement.Controllers
         //        hierarchy = IM.hierarchy,
         //        department = IM.department
         //    };
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
-        //    var result = await _userManager.AddUser(newUser);
-        //    if (!result.emailExist && !result.userNameExist)
-        //    {
-        //        return Ok(newUser);
-        //    }
-        //    return BadRequest(result.message);
-        //}
-
-        // PUT api/Users
-        //updates User's data
-        //[HttpPut]
-        //public async Task<IActionResult> Put([FromBody] UserCredentialsIM IM)
-        //{
-        //    Users user = 
-        //    var result = await _userManager.UpdateUser(IM.userName, user);
+        //    var result = await _userManager.UpdateUser(IM.userName, item);
         //    if (result)
-        //    {
-        //        return Ok(new
-        //        {
-        //            user
-        //        });
-        //    }
-        //    return BadRequest();
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> Delete(string userName)
-        //{
-        //    var result = await _userManager.RemoveUser(userName);
-        //    if(result)
         //    {
         //        return Ok();
         //    }
         //    return BadRequest();
         //}
+
+        //// DELETE api/values/5
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody] string userName)
+        {
+            var result = await _userManager.RemoveUser(userName);
+            if (result)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
     }
 }

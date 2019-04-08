@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using CRM.BusinessLayer.InputModel;
 using CRM.BusinessLayer.OutputModel;
 using CRM.DataAccess;
 using CRM.DataAccess.Interfaces;
@@ -122,6 +123,22 @@ namespace CRM.BusinessLayer
             {
                 throw ex;
             }
+        }
+        public async Task<bool> updateUserHelper(string userName, UserCredentialsIM input)
+        {
+            var user = await GetUser(userName)?? new Users();
+            checkNonNulls(user, input);
+            return await UpdateUser(userName, user);
+        }
+        //check non nulls to Update contains all attributes in the user's table
+        private void checkNonNulls(Users user, UserCredentialsIM input)
+        {
+            user.firstName = (input.firstName != null) ? input.firstName : user.firstName;
+            user.lastName = (input.lastName != null) ? input.lastName : user.lastName;
+            user.email = (input.email != null) ? input.email : user.email;
+            user.password = (input.password != null) ? input.password : user.password;
+            user.department = (input.department != null) ? input.department : user.department;
+            user.hierarchy = (input.hierarchy != null) ? input.hierarchy : user.hierarchy;
         }
         public async Task<bool> RemoveAllUsers()
         {

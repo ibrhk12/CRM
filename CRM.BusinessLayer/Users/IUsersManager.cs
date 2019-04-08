@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using MongoDB.Bson;
 using CRM.BusinessLayer.OutputModel;
+using CRM.BusinessLayer.InputModel;
 
 namespace CRM.DataAccess.Interfaces
 {
@@ -16,6 +17,7 @@ namespace CRM.DataAccess.Interfaces
         Task<CredentialExistOM> AddUser(Users item);
         Task<bool> RemoveUser(string userName);
         Task<bool> UpdateUser(string userName, Users item);
+        Task<bool> updateUserHelper(string userName, UserCredentialsIM input);
         Task<bool> RemoveAllUsers();
 
     }

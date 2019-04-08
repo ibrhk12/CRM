@@ -71,25 +71,16 @@ namespace clientRelationshipManagement.Controllers
 
         // PUT api/Users
         //updates User's data
-        //[HttpPut]
-        //public async Task<IActionResult> Put([FromBody] UserCredentialsIM IM)
-        //{
-        //    Users item = new Users {
-        //        firstName = IM.firstName,
-        //        lastName = IM.lastName,
-        //        email = IM.email,
-        //        userName = IM.userName,
-        //        password = IM.password,
-        //        hierarchy = IM.hierarchy,
-        //        department = IM.department
-        //    };
-        //    var result = await _userManager.UpdateUser(IM.userName, item);
-        //    if (result)
-        //    {
-        //        return Ok();
-        //    }
-        //    return BadRequest();
-        //}
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] UserCredentialsIM IM)
+        {
+            var result = await _userManager.updateUserHelper(IM.userName, IM);
+            if (result)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
 
         //// DELETE api/values/5
         [HttpDelete]

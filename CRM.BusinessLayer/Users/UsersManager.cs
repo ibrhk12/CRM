@@ -137,7 +137,7 @@ namespace CRM.BusinessLayer
             user.lastName = (input.lastName != null) ? input.lastName : user.lastName;
             user.email = (input.email != null) ? input.email : user.email;
             user.password = (input.password != null) ? input.password : user.password;
-            user.department = (input.department != null) ? input.department : user.department;
+            //user.department = (input.department != null) ? input.department : user.department;
             user.hierarchy = (input.hierarchy != null) ? input.hierarchy : user.hierarchy;
         }
         public async Task<bool> RemoveAllUsers()

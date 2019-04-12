@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using CRM.DataAccess.Interfaces;
 using CRM.BusinessLayer;
+using CRM.BusinessLayer.Department;
 
 namespace clientRelationshipManagement
 {
@@ -29,7 +30,9 @@ namespace clientRelationshipManagement
                 options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
+            // Dependency Injection
             services.AddTransient<IUsersManager, UsersManager>();
+            services.AddTransient<IDepartmentManager, DepartmentManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -21,5 +21,13 @@ namespace CRM.BusinessLayer
                 return _database.GetCollection<Users>("Users");
             }
         }
+        //Department
+        public IMongoCollection<Departments> Department
+        {
+            get
+            {
+                return _database.GetCollection<Departments>("Department");
+            }
+        }
     }
 }

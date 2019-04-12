@@ -23,6 +23,6 @@ namespace CRM.DataAccess
         [BsonElement]
         public string hierarchy { get; set; }
         [BsonElement]
-        public string department { get; set; }
+        public ObjectId departmentId { get; set; }
     }
 }

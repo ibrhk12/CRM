@@ -57,7 +57,7 @@ namespace clientRelationshipManagement.Controllers
                 userName = IM.userName,
                 password = IM.password,
                 hierarchy = IM.hierarchy,
-                department = IM.department
+                //department = IM.department
             };
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

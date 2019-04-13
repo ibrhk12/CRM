@@ -13,7 +13,7 @@ namespace CRM.BusinessLayer.Department
         Task<IEnumerable<Departments>> GetAllDepartments();
         Task<IEnumerable<Users>> GetAllUsers(string departmentName);
         Task AddDepartment(DepartmentIM input);
-        Task<int> getNumberOfEmployees(DepartmentIM input);
+        //Task<int> getNumberOfEmployees(DepartmentIM input);
         Task<bool> setManager(DepartmentIM input);
         Task<Departments> getDepartment(string departmentName);
     }

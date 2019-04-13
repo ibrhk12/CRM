@@ -22,7 +22,13 @@ namespace CRM.BusinessLayer.Department
         {
             try
             {
-                return await _context.Department.Find(_ => true).ToListAsync();
+                var result = await _context.Department.Find(_ => true).ToListAsync();
+                //Checking the Number of Employees before sending the final value
+                foreach (var value in result)
+                {
+                    await setNumberOfEmployees(value);
+                }
+                return result;
             }
             catch (Exception ex)
             {
@@ -64,16 +70,16 @@ namespace CRM.BusinessLayer.Department
             }
         }
 
-        public async Task<int> getNumberOfEmployees(DepartmentIM input)
+        private async Task  setNumberOfEmployees(Departments department)
         {
             try
             {
-                var department = await _context.Department.Find(dep => dep.departmentName == input.departmentName).FirstOrDefaultAsync();
+                //var department = await _context.Department.Find(dep => dep.departmentName == input.departmentName).FirstOrDefaultAsync();
                 var employees = await _context.Users.Find(user => user.departmentId == department.internalId).ToListAsync();
                 //update the number of Employees in the DB
                 department.numberofEmployees = employees.Count;
                 await _context.Department.ReplaceOneAsync( dep => dep.internalId.Equals(department.internalId), department, new UpdateOptions { IsUpsert = true });
-                return employees.Count;
+                //return employees.Count;
             }
             catch(Exception ex)
             {

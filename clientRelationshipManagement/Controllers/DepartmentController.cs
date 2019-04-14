@@ -76,6 +76,7 @@ namespace CRM.UI.Controllers
         [HttpDelete]
         public void Delete([FromBody] DepartmentIM input)
         {
+
         }
     }
 }
